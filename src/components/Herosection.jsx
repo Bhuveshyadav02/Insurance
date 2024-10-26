@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import logo from "../assets/logo4.png";
+import { Link } from "react-router-dom";
+//import logo from "../assets/logo4.png";
+import logo2 from "../assets/logo2.mp4";
 const Herosection = () => {
   const [state, setState] = useState(false);
 
   // Replace javascript:void(0) paths with your paths
   const navigation = [
-    { title: "Home", path: "javascript:void(0)" },
-    { title: "Services", path: "javascript:void(0)" },
+    { title: "Home", path: "/" },
+    { title: "Services", path: "/Services" },
     { title: "Contact Us", path: "javascript:void(0)" },
     { title: "Pricing", path: "javascript:void(0)" },
   ];
@@ -21,13 +23,20 @@ const Herosection = () => {
   const Brand = () => (
     <div className="flex items-center justify-between py-5 md:block">
       <a href="javascript:void(0)">
-        <img
+      <video
+          src={logo2}
+          autoPlay
+          loop
+          muted
+          className="rounded-3xl w-40 "
+        />
+         { /*<img
           src={logo}
           width={150}
           height={70}
           alt=" logo"
           className="rounded-3xl"
-        />
+        /> */}
       </a>
       <div className="md:hidden">
         <button
@@ -92,9 +101,9 @@ const Herosection = () => {
                 {navigation.map((item, idx) => {
                   return (
                     <li key={idx} className="text-gray-300 hover:text-gray-400">
-                      <a href={item.path} className="block">
+                      <Link to={item.path} className="block">
                         {item.title}
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}

@@ -1,0 +1,6 @@
+#service:hover{
+    transform: scale(1.02);
+    background-color: rgba(24, 24, 105, 0.37);
+   transition: transform 0.2s ease-in-out;
+   
+}
