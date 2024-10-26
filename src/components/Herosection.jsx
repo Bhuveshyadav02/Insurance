@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import logo from '../assets/logo4.png'
-export default () => {
+const Herosection=() => {
 
     const [state, setState] = useState(false)
 
@@ -116,3 +116,4 @@ export default () => {
         </div>
     )
 }
+export default Herosection
