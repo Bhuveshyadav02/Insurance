@@ -23,11 +23,13 @@ export default function Services() {
 
     return (
         <body className="bg-gradient-to-r from-gray-900 to-blue-900 text-white">
-        <section className="w-full py-10 bg-gradient-to-r from-gray-900 to-blue-900 text-white" style={{backgroundImage:`url(${imgBg})`,backgroundSize:'cover', backgroundRepeat : 'no-repeat',backgroundPosition:'center'}}>
+        <section className="w-full py-10 bg-gradient-to-r from-gray-900 to-blue-900 text-white" >
             <h2 className="text-4xl font-bold text-center mb-12">Our Services, What you want to secure today ?</h2>
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <br />
+            <br />
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-20">
                 {services.map((service, index) => (
-                    <div id='service' key={index} className="bg-gradient-to-r from-gray-900 to-blue-900 p-6 rounded-lg shadow-lg text-center" style={{opacity:'0.9', cursor:'pointer'}} >
+                    <div id='service' key={index} className="bg-gradient-to-r from-gray-900 to-blue-900 p-9 rounded-lg shadow-lg text-center" style={{opacity:'0.9', cursor:'pointer'}} >
                         <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                         <img src={service.image} />
                         <p className="text-gray-100">{service.description}</p>

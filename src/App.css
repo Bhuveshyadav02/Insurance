@@ -1,3 +1,6 @@
+#service{
+    box-shadow: 10px 10px 10px 10px black;
+}
 #service:hover{
     transform: scale(1.02);
     background-color: rgba(24, 24, 105, 0.37);
