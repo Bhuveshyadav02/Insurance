@@ -1,17 +1,22 @@
-import React from 'react'
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+// import logo from "../assets/logo4.png";
+import logo2 from "../assets/insure.png";
 import { Link } from "react-router-dom";
-//import logo from "../assets/logo4.png";
-import logo2 from "../assets/logo2.mp4";
 export default function Navbar() {
-    const [state, setState] = useState(false);
+  const [state, setState] = useState(false);
 
-  // Replace javascript:void(0) paths with your paths
+  const handleScrollToServices = () => {
+    document.getElementById("services").scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScrollToContact = () => {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+  };
+
   const navigation = [
     { title: "Home", path: "/" },
-    { title: "Services", path: "/Services" },
-    { title: "Contact Us", path: "javascript:void(0)" },
-    { title: "Pricing", path: "javascript:void(0)" },
+    { title: "Services", action: handleScrollToServices },
+    { title: "Contact Us", action: handleScrollToContact },
   ];
 
   useEffect(() => {
@@ -24,20 +29,7 @@ export default function Navbar() {
   const Brand = () => (
     <div className="flex items-center justify-between py-5 md:block">
       <a href="javascript:void(0)">
-      <video
-          src={logo2}
-          autoPlay
-          loop
-          muted
-          className="rounded-2xl w-20  "
-        />
-         { /*<img
-          src={logo}
-          width={150}
-          height={70}
-          alt=" logo"
-          className="rounded-3xl"
-        /> */}
+        <img src={logo2} width={210} height={70} alt=" logo" className="3xl" />
       </a>
       <div className="md:hidden">
         <button
@@ -79,7 +71,7 @@ export default function Navbar() {
   );
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gradient-to-r from-gray-900 to-blue-900">
       <header>
         <div className={`md:hidden ${state ? "mx-2 pb-5" : "hidden"}`}>
           <Brand />
@@ -102,15 +94,27 @@ export default function Navbar() {
                 {navigation.map((item, idx) => {
                   return (
                     <li key={idx} className="text-gray-300 hover:text-gray-400">
-                      <Link to={item.path} className="block">
-                        {item.title}
-                      </Link>
+                      {item.action ? (
+                        <button
+                          onClick={() => {
+                            setState(false); // Close the menu on click
+                            item.action();
+                          }}
+                          className="block text-left w-full"
+                        >
+                          {item.title}
+                        </button>
+                      ) : (
+                        <Link to={item.path} className="block">
+                          {item.title}
+                        </Link>
+                      )}
                     </li>
                   );
                 })}
                 <li>
-                  <a
-                    href="javascript:void(0)"
+                  <button
+                    onClick={handleScrollToContact}
                     className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-full md:inline-flex"
                   >
                     Get In Touch
@@ -126,13 +130,13 @@ export default function Navbar() {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      </div>
-  )
+    </div>
+  );
 }

@@ -22,7 +22,7 @@ export default function Services() {
     ];
 
     return (
-        <body className="bg-gradient-to-r from-gray-900 to-blue-900 text-white">
+        <body  id='services' className="bg-gradient-to-r from-gray-900 to-blue-900 text-white">
         <section className="w-full py-10 bg-gradient-to-r from-gray-900 to-blue-900 text-white" >
             <h2 className="text-4xl font-bold text-center mb-12">Our Services, What you want to secure today ?</h2>
             <br />

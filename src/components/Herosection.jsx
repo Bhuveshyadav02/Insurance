@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo4.png";
 import logo2 from "../assets/logo2.mp4";
-const Herosection = () => {
-  
+const Hero= () => {
+  const handleScrollToServices = () => {
+    document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+};
+const handleScrollTContact = () => {
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+};
   return (
     
       <section className="relative bg-gradient-to-r from-gray-900 to-blue-900">
@@ -21,11 +26,14 @@ const Herosection = () => {
             <form
               onSubmit={(e) => e.preventDefault()}
               className="justify-center items-center gap-x-3 sm:flex"
-            >
-              <a className="text-gray-300 hover:text-gray-400 underline cursor-pointer">
+            > 
+            
+              <a  onClick={handleScrollTContact} className="text-gray-300 hover:text-gray-400 underline cursor-pointer">
                 Request a Call Back
               </a>
-              <button className="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
+            
+             
+              <button  onClick={handleScrollToServices} className="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
                 Explore
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +48,7 @@ const Herosection = () => {
                   />
                 </svg>
               </button>
+             
             </form>
             <div className="flex justify-center items-center gap-x-4 text-gray-400 text-sm"></div>
           </div>
@@ -55,4 +64,4 @@ const Herosection = () => {
   
   );
 };
-export default Herosection;
+export default Hero;
