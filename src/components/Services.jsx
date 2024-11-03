@@ -9,6 +9,7 @@ import img6 from '../assets/images/img6.jpg'
 import img7 from '../assets/images/img7.jpg'
 import img8 from '../assets/images/img8.jpg'
 import '../App.css'
+import { Link } from 'react-router-dom'
 export default function Services() {
     const services = [
         { title: "Health Insurance", description: "Comprehensive health insurance plans for you and your family.",image :img5 },
@@ -34,8 +35,8 @@ export default function Services() {
                         <img src={service.image} />
                         <p className="text-gray-100">{service.description}</p>
                         <br />
-                        <a
-                    href="javascript:void(0)"
+                        <Link
+                    to={`/description/${index}`}
                     className="flex items-center justify-center gap-x-1 py-2 px-4 text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-full md:inline-flex"
                   >
                    Secure Now
@@ -51,7 +52,7 @@ export default function Services() {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </a>
+                  </Link>
                     </div>
                 ))}
             </div>

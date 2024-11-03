@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import { FooterWithLogo } from "./components/Footer";
+import Description from "./components/Description";
+
 export default function App() {
   return (
     <Router>
@@ -22,6 +24,7 @@ export default function App() {
             </>
           }
         />
+       <Route exact path="/description/:idx" element={<Description/>}/>
       </Routes>
       <FooterWithLogo/>
     </Router>

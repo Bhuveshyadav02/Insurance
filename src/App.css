@@ -1,5 +1,6 @@
 #service{
     box-shadow: 10px 10px 10px 10px black;
+    cursor: pointer;
 }
 #service:hover{
     transform: scale(1.02);
