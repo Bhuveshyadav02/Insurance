@@ -8,8 +8,9 @@ import img6 from '../assets/images/img6.jpg'
 import img7 from '../assets/images/img7.jpg'
 import img8 from '../assets/images/img8.jpg'
 import '../App.css'
-import { useParams,Link } from 'react-router-dom'
+import { useParams,useNavigate} from 'react-router-dom'
 const Description = () => {
+  const hst = useNavigate();
   const services = [
     { title: "Health Insurance", description: "Comprehensive health insurance plans for you and your family.",image :img5, details: [
       "Coverage for hospitalization expenses",
@@ -64,8 +65,12 @@ const Description = () => {
 const {idx} = useParams(); 
 const id = parseInt(idx,10);
   return (
-    <div className='bg-gradient-to-r from-gray-900 to-blue-900 text-white w-full flex'>
+    <div className='bg-gradient-to-r from-gray-900 to-blue-900 text-white w-full flex grid grid-cols-1   md:grid-cols-2 lg:grid-cols-2 '>
+       <div className='p-10 w-full'>
+      <img className='w-100 h-90' src={services[id].image} />
+      </div>
        <div   key={id} className="p-10 w-full" >
+        
                         <h1 className="text-3xl font-bold mb-4">{services[id].title}</h1>
                         <h1 className="text-gray-100">{services[id].description}</h1>
                         <br />
@@ -79,7 +84,7 @@ const id = parseInt(idx,10);
 <br />
 <button 
                     className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 mt-4"
-                    onClick={() => window.location.href = '/services'}
+                    onClick={() => hst('/')}
                 >
                    Back 
                 </button>
@@ -91,9 +96,7 @@ const id = parseInt(idx,10);
                 <br />
                 
       </div>
-      <div className='p-10 w-full'>
-      <img className='w-100 h-90' src={services[id].image} />
-      </div>
+      
     </div>
   )
 }

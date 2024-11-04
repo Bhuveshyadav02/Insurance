@@ -9,8 +9,9 @@ import img6 from '../assets/images/img6.jpg'
 import img7 from '../assets/images/img7.jpg'
 import img8 from '../assets/images/img8.jpg'
 import '../App.css'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 export default function Services() {
+  
     const services = [
         { title: "Health Insurance", description: "Comprehensive health insurance plans for you and your family.",image :img5 },
         { title: "Life Insurance", description: "Secure your family's future with our life protection plans.",image :img7 },
